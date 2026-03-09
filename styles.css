@@ -442,18 +442,87 @@ td:nth-child(3) {
   }
 }
 
-@media (max-width: 700px) {
-  .hero h1 {
-    font-size: 22px;
+@media (max-width: 900px) {
+  .page {
+    padding: 10px;
+    gap: 10px;
   }
 
-  .filters,
+  .hero {
+    min-height: 76px;
+    padding: 12px 10px;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .panel-title {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-actions .btn {
+    width: 100%;
+  }
+
   .kpi-grid {
     grid-template-columns: 1fr;
   }
 
+  .table-panel {
+    padding: 10px;
+  }
+
+  .table-wrap {
+    overflow: auto;
+  }
+
+  table {
+    min-width: 760px;
+  }
+
+  .modal {
+    padding: 0;
+  }
+
+  #detailModal .modal-card {
+    width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  #detailModal .table-wrap {
+    overflow: auto;
+  }
+
+  #detailModal table {
+    min-width: 980px;
+  }
+}
+
+@media (max-width: 700px) {
   .btn {
-    width: 100%;
+    font-size: 14px;
+    min-height: 40px;
+  }
+
+  select,
+  input[type="date"],
+  input[type="text"] {
+    height: 40px;
     font-size: 14px;
   }
 }
