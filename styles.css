@@ -582,3 +582,63 @@ td:nth-child(3) {
     justify-content: flex-start;
   }
 }
+/* Mobile Hotfix: prevent overflow and improve small-screen controls */
+html,
+body {
+  max-width: 100%;
+}
+
+.workspace,
+.page,
+.filters-card,
+.filters,
+.filter-actions-wrap,
+.table-panel,
+.table-wrap {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.table-panel {
+  overflow: hidden;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.filter-actions {
+  width: 100%;
+}
+
+.filter-actions .btn {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .filter-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .filter-actions .btn {
+    width: 100%;
+    min-height: 36px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-actions .btn {
+    min-height: 34px;
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  label,
+  .filter-actions-wrap {
+    font-size: 11px;
+  }
+}
