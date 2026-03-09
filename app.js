@@ -218,6 +218,7 @@ function renderKPI(rows) {
 
   const bookingRate = totalCapacity === 0 ? 0 : totalBooked / totalCapacity;
   const checkRate = totalBooked === 0 ? 0 : totalChecked / totalBooked;
+  const noShowRate = totalBooked === 0 ? 0 : totalNoShow / totalBooked;
 
   const nationalityCount = { 本國: 0, 外籍: 0, 陸籍: 0 };
   rows.forEach((r) => {
@@ -235,7 +236,7 @@ function renderKPI(rows) {
     { name: "總可售座位", value: totalCapacity, sub: "篩選範圍" },
     { name: "總訂票人數", value: totalBooked, sub: `訂票率 ${pct(bookingRate)}` },
     { name: "總驗票人數", value: totalChecked, sub: `驗票率 ${pct(checkRate)}` },
-    { name: "未驗票人數", value: totalNoShow, sub: totalNoShow > totalBooked * 0.2 ? "偏高" : "正常" },
+    { name: "未驗票人數", value: totalNoShow, sub: `未驗票率 ${pct(noShowRate)}` },
     {
       name: "國籍比例",
       value: `本國 ${nationalityPct(nationalityCount.本國)}`,
