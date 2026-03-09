@@ -19,6 +19,7 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 a {
@@ -111,6 +112,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(36, 56, 78, 0.08);
+  min-width: 0;
 }
 
 .filters-card {
@@ -219,6 +221,7 @@ input[type="text"] {
 
 .table-panel {
   padding: 14px;
+  min-width: 0;
 }
 
 .chart-head {
@@ -234,6 +237,7 @@ input[type="text"] {
 
 .table-wrap {
   overflow: auto;
+  min-width: 0;
 }
 
 table {
@@ -490,7 +494,7 @@ td:nth-child(3) {
   }
 
   table {
-    min-width: 760px;
+    min-width: 700px;
   }
 
   .modal {
@@ -509,20 +513,72 @@ td:nth-child(3) {
   }
 
   #detailModal table {
-    min-width: 980px;
+    min-width: 860px;
   }
 }
 
 @media (max-width: 700px) {
   .btn {
-    font-size: 14px;
-    min-height: 40px;
+    font-size: 13px;
+    min-height: 36px;
+    padding: 8px 12px;
   }
 
   select,
   input[type="date"],
   input[type="text"] {
-    height: 40px;
-    font-size: 14px;
+    height: 36px;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+@media (max-width: 480px) {
+  .page {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .hero {
+    min-height: 64px;
+    padding: 10px 8px;
+  }
+
+  .hero h1 {
+    font-size: 18px;
+  }
+
+  .panel-title {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .filters {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  label,
+  .filter-actions-wrap {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .table-panel {
+    padding: 8px;
+  }
+
+  table {
+    min-width: 620px;
+  }
+
+  th,
+  td {
+    font-size: 12px;
+    padding: 7px 6px;
+  }
+
+  .pager {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 }
