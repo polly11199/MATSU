@@ -385,6 +385,15 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function toExcelCell(value, asText = false) {
+  const content = escapeHtml(value);
+  if (!asText) {
+    return `<td>${content}</td>`;
+  }
+  // Keep exact text (e.g. phone leading zero) when opened in Excel/mobile Excel.
+  return `<td x:str style="mso-number-format:'\\@';">${content}</td>`;
+}
+
 function toExcelHtml(rows) {
   const header = ["日期", "路線", "班次", "可售座位", "訂票人數", "驗票人數", "未驗票", "訂票率", "驗票率"];
   const trs = rows
@@ -393,7 +402,7 @@ function toExcelHtml(rows) {
       const bookingRate = pct(r.booked / r.capacity);
       const checkRate = pct(r.booked === 0 ? 0 : r.checkedIn / r.booked);
       const cols = [r.date, r.route, r.shift, r.capacity, r.booked, r.checkedIn, noShow, bookingRate, checkRate];
-      return `<tr>${cols.map((c) => `<td>${escapeHtml(c)}</td>`).join("")}</tr>`;
+      return `<tr>${cols.map((c) => toExcelCell(c)).join("")}</tr>`;
     })
     .join("");
 
@@ -469,8 +478,9 @@ function toDetailExcelHtml(rows) {
     });
   });
 
+  const textColumns = new Set([4, 6, 8]); // 訂單編號、手機、身分證
   const trs = detailRows
-    .map((cols) => `<tr>${cols.map((c) => `<td>${escapeHtml(c)}</td>`).join("")}</tr>`)
+    .map((cols) => `<tr>${cols.map((c, idx) => toExcelCell(c, textColumns.has(idx))).join("")}</tr>`)
     .join("");
 
   return `<!doctype html>
