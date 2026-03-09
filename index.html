@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>每日班次訂票/驗票報表</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <p class="brand-main">平台管理後台</p>
+          <p class="brand-sub">HI! 系統管理員</p>
+        </div>
+        <nav class="sidebar-nav" aria-label="後台選單">
+          <a href="#">公告資訊管理</a>
+          <a href="#">商家資訊</a>
+          <a href="#">內容管理</a>
+          <a href="#">常見問題管理</a>
+          <a href="#">路線管理</a>
+          <a href="#">檔案下載管理</a>
+          <a href="#">訂單歷史資料管理</a>
+          <a href="#">下載客戶名單</a>
+          <a href="#">帳務資料管理</a>
+          <a href="#">意見回饋管理</a>
+          <a href="#">帳號權限管理</a>
+          <a href="#">現金報表</a>
+          <a href="#">變更密碼</a>
+          <a href="#">登出</a>
+        </nav>
+      </aside>
+
+      <div class="workspace">
+<section class="hero">
+          <h1>乘客名單</h1>
+        </section>
+
+        <main class="page">
+          <section class="panel filters-card">
+            <div class="panel-title">查詢條件</div>
+                        <div class="filters">
+              <label>
+                起始日期
+                <input type="date" id="startDateFilter" />
+              </label>
+              <label>
+                結束日期
+                <input type="date" id="endDateFilter" />
+              </label>
+              <label>
+                路線
+                <select id="routeFilter"></select>
+              </label>
+              <label>
+                訂位人姓名
+                <input type="text" id="nameFilter" placeholder="請輸入訂位人姓名" />
+              </label>
+              <label>
+                手機
+                <input type="text" id="phoneFilter" placeholder="請輸入手機號碼" />
+              </label>
+              <label>
+                接駁地點
+                <input type="text" id="pickupFilter" placeholder="請輸入接駁地點" />
+              </label>
+              <div class="filter-actions-wrap">
+                <span class="action-label">操作</span>
+                <div class="filter-actions">
+                  <button id="queryBtn" class="btn" type="button">查詢</button>
+                  <button id="exportExcelBtn" class="btn btn-secondary" type="button">匯出 Excel</button>
+                  <button id="exportDetailBtn" class="btn btn-plain" type="button">下載名單</button>
+                </div>
+              </div>
+            </div>          </section>
+
+          <section class="kpi-grid" id="kpiGrid"></section>
+
+          <section class="panel table-panel">
+            <div class="chart-head">
+              <h2>每日每班次明細</h2>
+              <small id="rowCount"></small>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>日期</th>
+                    <th>路線</th>
+                    <th>班次</th>
+                    <th>可售座位</th>
+                    <th>訂票人數</th>
+                    <th>驗票人數</th>
+                    <th>未驗票</th>
+                    <th>訂票率</th>
+                    <th>驗票率</th>
+                  </tr>
+                </thead>
+                <tbody id="reportBody"></tbody>
+              </table>
+            </div>
+            <div class="pager">
+              <button id="mainPrevBtn" class="pager-btn">上一頁</button>
+              <span id="mainPageInfo">第 1 / 1 頁</span>
+              <button id="mainNextBtn" class="pager-btn">下一頁</button>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div id="detailModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-card">
+        <header class="modal-head">
+          <div>
+            <h3 id="detailTitle">路線乘客明細</h3>
+            <p id="detailMeta"></p>
+          </div>
+          <button id="closeDetailBtn" class="modal-close" aria-label="關閉">✕</button>
+        </header>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>搭乘日期</th>
+                <th>班次</th>
+                <th>姓名</th>
+                <th>訂單編號</th>
+                <th>搭乘時間</th>
+                <th>手機</th>
+                <th>國籍</th>
+                <th>身分證</th>
+                <th>是否接駁</th>
+                <th>是否需要英文</th>
+                <th>身心障礙人士</th>
+                <th>備註</th>
+                <th>訂票狀態</th>
+                <th>驗票狀態</th>
+              </tr>
+            </thead>
+            <tbody id="detailBody"></tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <button id="detailPrevBtn" class="pager-btn">上一頁</button>
+          <span id="detailPageInfo">第 1 / 1 頁</span>
+          <button id="detailNextBtn" class="pager-btn">下一頁</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
