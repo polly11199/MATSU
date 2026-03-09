@@ -97,8 +97,8 @@ function generateData() {
     for (let day = 1; day <= 28; day += 1) {
       const date = `${year}/${mm}/${String(day).padStart(2, "0")}`;
       routes.forEach((route) => {
-        shifts.forEach((shift, idx) => {
-          const capacity = idx === 2 ? 30 : 35;
+        shifts.forEach((shift) => {
+          const capacity = route.includes("國之北疆線") ? 19 : 25;
           const booked = randomBetween(12, capacity);
           const checkedIn = randomBetween(Math.floor(booked * 0.72), booked);
 
