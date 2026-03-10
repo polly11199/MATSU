@@ -182,13 +182,16 @@ startDateFilter.max = maxDate;
 endDateFilter.min = minDate;
 endDateFilter.max = maxDate;
 
-startDateFilter.value = minDate;
-endDateFilter.value = maxDate;
+const today = new Date();
+const todayIso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+const defaultDate = todayIso >= minDate && todayIso <= maxDate ? todayIso : minDate;
+startDateFilter.value = defaultDate;
+endDateFilter.value = defaultDate;
 
 
 function getFiltered() {
-  const start = startDateFilter.value || minDate;
-  const end = endDateFilter.value || maxDate;
+  const start = startDateFilter.value || defaultDate;
+  const end = endDateFilter.value || defaultDate;
   const nameKeyword = nameFilter.value.trim();
   const phoneKeyword = phoneFilter.value.trim();
   const pickupKeyword = pickupFilter.value.trim();
@@ -365,8 +368,8 @@ function toCsv(rows) {
 }
 
 function getRangeTag() {
-  const start = (startDateFilter.value || minDate).replaceAll("-", "");
-  const end = (endDateFilter.value || maxDate).replaceAll("-", "");
+  const start = (startDateFilter.value || defaultDate).replaceAll("-", "");
+  const end = (endDateFilter.value || defaultDate).replaceAll("-", "");
   return `${start}_${end}`;
 }
 function downloadCsv(rows) {
