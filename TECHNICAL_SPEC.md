@@ -43,6 +43,7 @@
 
 ### 4.2 乘客 passenger
 - `name`
+- `seller`：售票員（`旅行社 / 公車處 / 南竿鄉 / 北竿鄉 / 東引鄉 / 莒光鄉`）
 - `bookingCode`：訂位代碼（8 碼英數，例如 `N1NT06IV`）
 - `rideTime`：內部仍有生成，但目前「明細畫面/下載名單」不顯示
 - `phone`
@@ -70,6 +71,7 @@
 - `shuttle`：35% 是
 - `needEnglish`：20% 是
 - `disability`：8% 是
+- `seller`：從售票員名單隨機指派
 - `note`：每 12 筆 1 筆長備註，其餘依條件帶「需協助上下車 / 需英文服務 / -」
 
 ## 6. 篩選規則（查詢條件）
@@ -79,6 +81,7 @@
 - 搭乘日期迄 `endDateFilter`
 - 路線 `routeFilter`
 - 訂位人姓名 `nameFilter`
+- 售票員 `sellerFilter`
 - 手機 `phoneFilter`
 - 接駁地點 `pickupFilter`
 
@@ -95,7 +98,7 @@
 `getFiltered()` 採：
 - `routeOk AND dateOk AND passengerOk`
 - `passengerOk` 規則：
-  - 姓名/手機/接駁地點都空 => true
+  - 姓名/售票員/手機/接駁地點都空 => true
   - 否則需「同一位乘客」同時符合已輸入的關鍵字（AND）
 
 ## 7. KPI 計算
@@ -124,6 +127,7 @@
 - 搭乘日期
 - 班次
 - 姓名
+- 售票員
 - 訂位代碼
 - 手機
 - 國籍
