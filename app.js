@@ -136,7 +136,6 @@ const startDateFilter = document.getElementById("startDateFilter");
 const endDateFilter = document.getElementById("endDateFilter");
 const routeFilter = document.getElementById("routeFilter");
 const nameFilter = document.getElementById("nameFilter");
-const sellerFilter = document.getElementById("sellerFilter");
 const phoneFilter = document.getElementById("phoneFilter");
 const pickupFilter = document.getElementById("pickupFilter");
 const reportBody = document.getElementById("reportBody");
@@ -176,7 +175,6 @@ function setSelectOptions(select, options, allLabel) {
 }
 
 setSelectOptions(routeFilter, routes, "全部路線");
-setSelectOptions(sellerFilter, ticketSellers, "全部售票員");
 
 const allIsoDates = [...new Set(rawData.map((r) => r.date.replaceAll("/", "-")))].sort();
 const minDate = allIsoDates[0];
@@ -197,10 +195,9 @@ function getFiltered() {
   const start = startDateFilter.value || defaultDate;
   const end = endDateFilter.value || defaultDate;
   const nameKeyword = nameFilter.value.trim();
-  const sellerKeyword = sellerFilter.value;
   const phoneKeyword = phoneFilter.value.trim();
   const pickupKeyword = pickupFilter.value.trim();
-  const hasPassengerKeyword = Boolean(nameKeyword || phoneKeyword || pickupKeyword || sellerKeyword !== "ALL");
+  const hasPassengerKeyword = Boolean(nameKeyword || phoneKeyword || pickupKeyword);
 
   return rawData.filter((row) => {
     const routeOk = routeFilter.value === "ALL" || row.route === routeFilter.value;
@@ -211,10 +208,9 @@ function getFiltered() {
       !hasPassengerKeyword ||
       row.passengers.some((p) => {
         const nameOk = !nameKeyword || p.name.includes(nameKeyword);
-        const sellerOk = sellerKeyword === "ALL" || p.seller === sellerKeyword;
         const phoneOk = !phoneKeyword || p.phone.includes(phoneKeyword);
         const pickupOk = !pickupKeyword || p.pickupPoint.includes(pickupKeyword);
-        return nameOk && sellerOk && phoneOk && pickupOk;
+        return nameOk && phoneOk && pickupOk;
       });
 
     return routeOk && dateOk && passengerOk;
@@ -342,7 +338,6 @@ function renderDetailTable() {
         <td>${row.date}</td>
         <td>${row.shift}</td>
         <td>${p.name}</td>
-        <td>${p.seller}</td>
         <td>${p.bookingCode}</td>
         <td>${p.phone}</td>
         <td>${p.nationality}</td>
@@ -350,9 +345,9 @@ function renderDetailTable() {
         <td>${p.shuttle}</td>
         <td>${p.needEnglish}</td>
         <td>${p.disability}</td>
-        <td>${p.note}</td>
+        <td class="detail-note">${p.note}</td>
         <td>${p.bookedStatus}</td>
-        <td><span class="pill ${checkedClass}">${p.checkedStatus}</span></td>
+        <td class="check-status-cell"><span class="pill ${checkedClass}">${p.checkedStatus}</span><span class="seller-inline">（${p.seller}）</span></td>
       </tr>
     `;
     })
@@ -533,7 +528,7 @@ function render() {
   renderTable(rows);
 }
 
-[routeFilter, sellerFilter, startDateFilter, endDateFilter, nameFilter, phoneFilter, pickupFilter].forEach((el) =>
+[routeFilter, startDateFilter, endDateFilter, nameFilter, phoneFilter, pickupFilter].forEach((el) =>
   el.addEventListener("change", () => {
     if (startDateFilter.value && endDateFilter.value && startDateFilter.value > endDateFilter.value) {
       endDateFilter.value = startDateFilter.value;

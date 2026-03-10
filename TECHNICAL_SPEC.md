@@ -81,7 +81,6 @@
 - 搭乘日期迄 `endDateFilter`
 - 路線 `routeFilter`
 - 訂位人姓名 `nameFilter`
-- 售票員 `sellerFilter`
 - 手機 `phoneFilter`
 - 接駁地點 `pickupFilter`
 
@@ -98,7 +97,7 @@
 `getFiltered()` 採：
 - `routeOk AND dateOk AND passengerOk`
 - `passengerOk` 規則：
-  - 姓名/售票員/手機/接駁地點都空 => true
+  - 姓名/手機/接駁地點都空 => true
   - 否則需「同一位乘客」同時符合已輸入的關鍵字（AND）
 
 ## 7. KPI 計算
@@ -127,7 +126,6 @@
 - 搭乘日期
 - 班次
 - 姓名
-- 售票員
 - 訂位代碼
 - 手機
 - 國籍
@@ -137,7 +135,7 @@
 - 身心障礙人士
 - 備註
 - 訂票狀態
-- 驗票狀態（顏色 pill）
+- 驗票狀態（顏色 pill，旁邊顯示售票員）
 
 說明：`搭乘時間` 已從明細畫面移除。
 
