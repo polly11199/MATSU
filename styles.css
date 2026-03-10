@@ -410,28 +410,22 @@ td:nth-child(3) {
   padding: 8px 5px;
 }
 
-#detailModal th:nth-child(-n+7),
-#detailModal td:nth-child(-n+7),
-#detailModal th:nth-child(11),
-#detailModal td:nth-child(11),
+#detailModal th:nth-child(-n+8),
+#detailModal td:nth-child(-n+8),
+#detailModal th:nth-child(12),
+#detailModal td:nth-child(12),
 #detailModal td.check-status-cell {
   text-align: left;
 }
 
 #detailModal td.detail-note,
-#detailModal th:nth-child(11),
-#detailModal td:nth-child(11) {
+#detailModal th:nth-child(12),
+#detailModal td:nth-child(12) {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
   min-width: 260px;
   max-width: 360px;
-}
-
-#detailModal .seller-inline {
-  margin-left: 4px;
-  color: #486581;
-  font-weight: 600;
 }
 
 #detailModal .modal-card {

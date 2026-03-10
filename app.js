@@ -338,6 +338,7 @@ function renderDetailTable() {
         <td>${row.date}</td>
         <td>${row.shift}</td>
         <td>${p.name}</td>
+        <td>${p.seller}</td>
         <td>${p.bookingCode}</td>
         <td>${p.phone}</td>
         <td>${p.nationality}</td>
@@ -347,7 +348,7 @@ function renderDetailTable() {
         <td>${p.disability}</td>
         <td class="detail-note">${p.note}</td>
         <td>${p.bookedStatus}</td>
-        <td class="check-status-cell"><span class="pill ${checkedClass}">${p.checkedStatus}</span><span class="seller-inline">（${p.seller}）</span></td>
+        <td class="check-status-cell"><span class="pill ${checkedClass}">${p.checkedStatus}</span></td>
       </tr>
     `;
     })
