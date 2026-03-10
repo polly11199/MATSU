@@ -370,13 +370,13 @@ td:nth-child(3) {
 
 #detailModal th:nth-child(-n+7),
 #detailModal td:nth-child(-n+7),
-#detailModal th:nth-child(12),
-#detailModal td:nth-child(12) {
+#detailModal th:nth-child(11),
+#detailModal td:nth-child(11) {
   text-align: left;
 }
 
-#detailModal th:nth-child(12),
-#detailModal td:nth-child(12) {
+#detailModal th:nth-child(11),
+#detailModal td:nth-child(11) {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
