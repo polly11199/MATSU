@@ -161,10 +161,6 @@ a {
   font-weight: 700;
 }
 
-.route-filter-hidden {
-  display: none;
-}
-
 select,
 input[type="date"],
 input[type="text"] {
