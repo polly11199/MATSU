@@ -43,39 +43,38 @@
           <section class="panel filters-card">
             <div class="panel-title">查詢條件</div>
                         <div class="filters">
-              <label>
-                起始日期
-                <input type="date" id="startDateFilter" />
-              </label>
-              <label>
-                結束日期
-                <input type="date" id="endDateFilter" />
-              </label>
-              <label>
-                路線
-                <select id="routeFilter"></select>
-              </label>
-              <label>
-                訂位人姓名
+              <div class="filter-row date-filter-row">
+                <span class="filter-label">搭乘日期</span>
+                <div class="date-range">
+                  <span class="date-mark">起:</span>
+                  <input type="date" id="startDateFilter" />
+                  <span class="date-mark">迄:</span>
+                  <input type="date" id="endDateFilter" />
+                </div>
+              </div>
+              <select id="routeFilter" class="route-filter-hidden" aria-hidden="true" tabindex="-1"></select>
+              <div class="filter-row">
+                <label class="filter-label" for="nameFilter">訂位人姓名</label>
                 <input type="text" id="nameFilter" placeholder="請輸入訂位人姓名" />
-              </label>
-              <label>
-                手機
+              </div>
+              <div class="filter-row">
+                <label class="filter-label" for="phoneFilter">手機</label>
                 <input type="text" id="phoneFilter" placeholder="請輸入手機號碼" />
-              </label>
-              <label>
-                接駁地點
+              </div>
+              <div class="filter-row">
+                <label class="filter-label" for="pickupFilter">接駁地點</label>
                 <input type="text" id="pickupFilter" placeholder="請輸入接駁地點" />
-              </label>
-              <div class="filter-actions-wrap">
-                <span class="action-label">操作</span>
+              </div>
+              <div class="filter-row action-row">
+                <span class="filter-label">操作</span>
                 <div class="filter-actions">
                   <button id="queryBtn" class="btn" type="button">查詢</button>
                   <button id="exportExcelBtn" class="btn btn-secondary" type="button">匯出 Excel</button>
                   <button id="exportDetailBtn" class="btn btn-plain" type="button">下載名單</button>
                 </div>
               </div>
-            </div>          </section>
+            </div>
+          </section>
 
           <section class="kpi-grid" id="kpiGrid"></section>
 
@@ -151,6 +150,6 @@
       </div>
     </div>
 
-    <script src="./app.js?v=20260310-3"></script>
+    <script src="./app.js?v=20260310-4"></script>
   </body>
 </html>
