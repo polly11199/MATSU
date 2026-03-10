@@ -393,39 +393,86 @@ td:nth-child(3) {
 }
 
 #detailModal .table-wrap {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-#detailModal .table-wrap::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
+  overflow: visible;
 }
 
 #detailModal table {
-  min-width: 100%;
-  table-layout: auto;
+  width: 100%;
+  table-layout: fixed;
 }
 
 #detailModal th,
 #detailModal td {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  padding: 8px 4px;
+  vertical-align: top;
+}
+
+#detailModal th:nth-child(1),
+#detailModal td:nth-child(1),
+#detailModal th:nth-child(2),
+#detailModal td:nth-child(2),
+#detailModal th:nth-child(3),
+#detailModal td:nth-child(3),
+#detailModal th:nth-child(4),
+#detailModal td:nth-child(4),
+#detailModal th:nth-child(5),
+#detailModal td:nth-child(5),
+#detailModal th:nth-child(6),
+#detailModal td:nth-child(6),
+#detailModal th:nth-child(7),
+#detailModal td:nth-child(7),
+#detailModal th:nth-child(8),
+#detailModal td:nth-child(8),
+#detailModal th:nth-child(9),
+#detailModal td:nth-child(9),
+#detailModal th:nth-child(10),
+#detailModal td:nth-child(10),
+#detailModal th:nth-child(11),
+#detailModal td:nth-child(11),
+#detailModal th:nth-child(13),
+#detailModal td:nth-child(13),
+#detailModal th:nth-child(14),
+#detailModal td:nth-child(14),
+#detailModal td.check-status-cell {
   white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
-  font-size: 12px;
-  padding: 8px 5px;
+  text-align: left;
+  vertical-align: middle;
 }
 
-#detailModal th:nth-child(-n+8),
-#detailModal td:nth-child(-n+8),
+#detailModal th:nth-child(1),
+#detailModal td:nth-child(1) { width: 8%; }
+#detailModal th:nth-child(2),
+#detailModal td:nth-child(2) { width: 7%; }
+#detailModal th:nth-child(3),
+#detailModal td:nth-child(3) { width: 5%; }
+#detailModal th:nth-child(4),
+#detailModal td:nth-child(4) { width: 4%; }
+#detailModal th:nth-child(5),
+#detailModal td:nth-child(5) { width: 6%; }
+#detailModal th:nth-child(6),
+#detailModal td:nth-child(6) { width: 6%; }
+#detailModal th:nth-child(7),
+#detailModal td:nth-child(7) { width: 3%; }
+#detailModal th:nth-child(8),
+#detailModal td:nth-child(8) { width: 6%; }
+#detailModal th:nth-child(9),
+#detailModal td:nth-child(9) { width: 4%; }
+#detailModal th:nth-child(10),
+#detailModal td:nth-child(10) { width: 5%; }
+#detailModal th:nth-child(11),
+#detailModal td:nth-child(11) { width: 5%; }
 #detailModal th:nth-child(12),
-#detailModal td:nth-child(12),
-#detailModal td.check-status-cell {
-  text-align: left;
-}
+#detailModal td:nth-child(12) { width: 28%; }
+#detailModal th:nth-child(13),
+#detailModal td:nth-child(13) { width: 5%; }
+#detailModal th:nth-child(14),
+#detailModal td:nth-child(14) { width: 6%; }
 
 #detailModal td.detail-note,
 #detailModal th:nth-child(12),
@@ -433,13 +480,14 @@ td:nth-child(3) {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
-  min-width: 260px;
-  max-width: 360px;
+  min-width: 0;
+  max-width: none;
 }
 
 #detailModal .modal-card {
   width: min(1500px, 98vw);
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .pager {
@@ -570,13 +618,12 @@ td:nth-child(3) {
     border-radius: 0;
     padding: 10px;
   }
-
   #detailModal .table-wrap {
-    overflow: auto;
+    overflow: visible;
   }
-
   #detailModal table {
-    min-width: 860px;
+    width: 100%;
+    min-width: 0;
   }
 }
 
