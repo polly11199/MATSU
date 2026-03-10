@@ -47,7 +47,7 @@
 - `rideTime`：內部仍有生成，但目前「明細畫面/下載名單」不顯示
 - `phone`
 - `idNo`
-- `nationality`：`本國 / 外籍 / 陸籍`
+- `nationality`：`本國 / 外國 / 陸籍`
 - `shuttle`：`是/否`
 - `pickupPoint`：`shuttle=否` 時為 `-`
 - `needEnglish`：`是/否`
@@ -66,7 +66,7 @@
 ### 5.2 乘客數值
 - `checkedStatus`：前 `checkedIn` 位為 `已驗票`
 - `rideTime`：班次內隨機 60 分鐘區間
-- `nationality` 機率：本國 70%、外籍 23%、陸籍 7%
+- `nationality` 機率：本國 70%、外國 23%、陸籍 7%
 - `shuttle`：35% 是
 - `needEnglish`：20% 是
 - `disability`：8% 是
@@ -106,7 +106,7 @@
 - 訂票率 = `總訂票 / 總可售`
 - 驗票率 = `總驗票 / 總訂票`
 - 未驗票卡片副文案：`未驗票率 xx.x%`
-- 國籍比例：掃 `rows.passengers` 後計算本國/外籍/陸籍占比
+- 國籍比例：掃 `rows.passengers` 後計算本國/外國/陸籍占比
 
 ## 8. 主表欄位
 - 日期

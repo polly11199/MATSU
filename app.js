@@ -12,7 +12,7 @@ const shifts = ["08:30-12:00", "13:30-17:00", "18:00-20:00"];
 const months = ["2026-03", "2026-04", "2026-05"];
 const familyNames = ["王", "李", "陳", "林", "張", "黃", "吳", "劉", "蔡", "楊", "郭", "周", "徐", "孫", "朱"];
 const givenNames = ["小明", "怡君", "雅婷", "志豪", "佳穎", "柏翰", "宇辰", "佩珊", "品妤", "承恩", "建宏", "美玲", "家豪", "子晴", "芷涵"];
-const nationalityTypes = ["本國", "外籍", "陸籍"];
+const nationalityTypes = ["本國", "外國", "陸籍"];
 const pickupPoints = ["福澳港", "馬港遊客中心", "介壽獅子市場", "北竿白沙港"];
 
 function randomBetween(min, max) {
@@ -229,7 +229,7 @@ function renderKPI(rows) {
   const checkRate = totalBooked === 0 ? 0 : totalChecked / totalBooked;
   const noShowRate = totalBooked === 0 ? 0 : totalNoShow / totalBooked;
 
-  const nationalityCount = { 本國: 0, 外籍: 0, 陸籍: 0 };
+  const nationalityCount = { 本國: 0, 外國: 0, 陸籍: 0 };
   rows.forEach((r) => {
     r.passengers.forEach((p) => {
       if (nationalityCount[p.nationality] !== undefined) {
@@ -238,7 +238,7 @@ function renderKPI(rows) {
     });
   });
 
-  const totalNationality = nationalityCount.本國 + nationalityCount.外籍 + nationalityCount.陸籍;
+  const totalNationality = nationalityCount.本國 + nationalityCount.外國 + nationalityCount.陸籍;
   const nationalityPct = (n) => (totalNationality === 0 ? "0.0%" : pct(n / totalNationality));
 
   const cards = [
@@ -249,7 +249,7 @@ function renderKPI(rows) {
     {
       name: "國籍比例",
       value: `本國 ${nationalityPct(nationalityCount.本國)}`,
-      sub: `外籍 ${nationalityPct(nationalityCount.外籍)}｜陸籍 ${nationalityPct(nationalityCount.陸籍)}`
+      sub: `外國 ${nationalityPct(nationalityCount.外國)}｜陸籍 ${nationalityPct(nationalityCount.陸籍)}`
     }
   ];
 
