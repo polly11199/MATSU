@@ -393,7 +393,16 @@ td:nth-child(3) {
 }
 
 #detailModal .table-wrap {
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#detailModal .table-wrap::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 #detailModal table {
@@ -430,6 +439,7 @@ td:nth-child(3) {
 
 #detailModal .modal-card {
   width: min(1500px, 98vw);
+  overflow: hidden;
 }
 
 .pager {
