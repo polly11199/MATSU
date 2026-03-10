@@ -328,7 +328,6 @@ function renderDetailTable() {
         <td>${row.shift}</td>
         <td>${p.name}</td>
         <td>${p.orderNo}</td>
-        <td>${p.rideTime}</td>
         <td>${p.phone}</td>
         <td>${p.nationality}</td>
         <td>${p.idNo}</td>
@@ -443,7 +442,6 @@ function toDetailExcelHtml(rows) {
     "班次",
     "姓名",
     "訂單編號",
-    "搭乘時間",
     "手機",
     "國籍",
     "身分證",
@@ -464,7 +462,6 @@ function toDetailExcelHtml(rows) {
         r.shift,
         p.name,
         p.orderNo,
-        p.rideTime,
         p.phone,
         p.nationality,
         p.idNo,
@@ -478,7 +475,7 @@ function toDetailExcelHtml(rows) {
     });
   });
 
-  const textColumns = new Set([4, 6, 8]); // 訂單編號、手機、身分證
+  const textColumns = new Set([4, 5, 7]); // 訂單編號、手機、身分證
   const trs = detailRows
     .map((cols) => `<tr>${cols.map((c, idx) => toExcelCell(c, textColumns.has(idx))).join("")}</tr>`)
     .join("");
