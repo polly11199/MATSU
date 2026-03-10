@@ -47,6 +47,12 @@ function randomIdNo() {
   return `${first}${randomBetween(1, 2)}${String(randomBetween(0, 99999999)).padStart(8, "0")}`;
 }
 
+function randomBookingCode() {
+  const letters = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+  const pick = () => letters[randomBetween(0, letters.length - 1)];
+  return `${pick()}${randomBetween(0, 9)}${pick()}${pick()}${String(randomBetween(0, 99)).padStart(2, "0")}${pick()}${pick()}`;
+}
+
 function randomYesNo(yesRate) {
   return Math.random() < yesRate ? "是" : "否";
 }
@@ -70,7 +76,7 @@ function generatePassengers(row) {
 
     passengers.push({
       name: `${familyNames[randomBetween(0, familyNames.length - 1)]}${givenNames[randomBetween(0, givenNames.length - 1)]}`,
-      orderNo: `MTS${row.date.replaceAll("/", "")}${String(row.seq).padStart(3, "0")}${String(i + 1).padStart(3, "0")}`,
+      bookingCode: randomBookingCode(),
       rideTime: `${minuteToDisplay(rideStart)}-${minuteToDisplay(rideEnd)}`,
       phone: randomPhone(),
       idNo: randomIdNo(),
@@ -327,7 +333,7 @@ function renderDetailTable() {
         <td>${row.date}</td>
         <td>${row.shift}</td>
         <td>${p.name}</td>
-        <td>${p.orderNo}</td>
+        <td>${p.bookingCode}</td>
         <td>${p.phone}</td>
         <td>${p.nationality}</td>
         <td>${p.idNo}</td>
@@ -441,7 +447,7 @@ function toDetailExcelHtml(rows) {
     "路線",
     "班次",
     "姓名",
-    "訂單編號",
+    "訂位代碼",
     "手機",
     "國籍",
     "身分證",
@@ -461,7 +467,7 @@ function toDetailExcelHtml(rows) {
         r.route,
         r.shift,
         p.name,
-        p.orderNo,
+        p.bookingCode,
         p.phone,
         p.nationality,
         p.idNo,
@@ -475,7 +481,7 @@ function toDetailExcelHtml(rows) {
     });
   });
 
-  const textColumns = new Set([4, 5, 7]); // 訂單編號、手機、身分證
+  const textColumns = new Set([4, 5, 7]); // 訂位代碼、手機、身分證
   const trs = detailRows
     .map((cols) => `<tr>${cols.map((c, idx) => toExcelCell(c, textColumns.has(idx))).join("")}</tr>`)
     .join("");
