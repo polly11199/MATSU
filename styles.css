@@ -132,15 +132,15 @@ a {
 .filters {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 14px;
   padding: 18px 20px 20px;
-  max-width: 780px;
+  max-width: 980px;
 }
 
 .filter-row {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
 }
 
@@ -149,11 +149,23 @@ a {
   font-size: 13px;
 }
 
+.filter-row > input[type="text"],
+.filter-row > select,
+.filter-row > .date-range,
+.filter-row > .filter-actions {
+  max-width: 620px;
+}
+
 .date-range {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: auto 220px auto 220px;
+  gap: 12px;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.date-range input[type="date"] {
+  width: 220px;
 }
 
 .date-mark {
@@ -183,6 +195,19 @@ input[type="text"] {
 
 .action-row .filter-actions {
   justify-content: flex-start;
+}
+
+.filter-actions .btn {
+  min-width: 124px;
+}
+
+#queryBtn {
+  min-width: 84px;
+}
+
+#exportExcelBtn,
+#exportDetailBtn {
+  min-width: 132px;
 }
 
 .btn {
