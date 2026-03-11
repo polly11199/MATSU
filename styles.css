@@ -453,14 +453,16 @@ td:nth-child(3) {
 }
 
 #detailModal td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#detailModal td.detail-note,
-#detailModal td.check-status-cell {
   overflow: visible;
   text-overflow: clip;
+}
+
+#detailModal td:nth-child(4),
+#detailModal td:nth-child(5),
+#detailModal td:nth-child(7) {
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 #detailModal th:nth-child(1),
@@ -470,13 +472,13 @@ td:nth-child(3) {
 #detailModal th:nth-child(3),
 #detailModal td:nth-child(3) { width: 5%; }
 #detailModal th:nth-child(4),
-#detailModal td:nth-child(4) { width: 6%; }
+#detailModal td:nth-child(4) { width: 7%; }
 #detailModal th:nth-child(5),
-#detailModal td:nth-child(5) { width: 6%; }
+#detailModal td:nth-child(5) { width: 7%; }
 #detailModal th:nth-child(6),
 #detailModal td:nth-child(6) { width: 4%; }
 #detailModal th:nth-child(7),
-#detailModal td:nth-child(7) { width: 7%; }
+#detailModal td:nth-child(7) { width: 8%; }
 #detailModal th:nth-child(8),
 #detailModal td:nth-child(8) { width: 6%; }
 #detailModal th:nth-child(9),
@@ -484,7 +486,7 @@ td:nth-child(3) {
 #detailModal th:nth-child(10),
 #detailModal td:nth-child(10) { width: 8%; }
 #detailModal th:nth-child(11),
-#detailModal td:nth-child(11) { width: 20%; }
+#detailModal td:nth-child(11) { width: 18%; }
 #detailModal th:nth-child(12),
 #detailModal td:nth-child(12) { width: 5%; }
 #detailModal th:nth-child(13),
