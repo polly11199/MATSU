@@ -338,7 +338,6 @@ function renderDetailTable() {
         <td>${row.date}</td>
         <td>${row.shift}</td>
         <td>${p.name}</td>
-        <td>${p.seller}</td>
         <td>${p.bookingCode}</td>
         <td>${p.phone}</td>
         <td>${p.nationality}</td>
@@ -349,6 +348,7 @@ function renderDetailTable() {
         <td class="detail-note">${p.note}</td>
         <td>${p.bookedStatus}</td>
         <td class="check-status-cell"><span class="pill ${checkedClass}">${p.checkedStatus}</span></td>
+        <td>${p.seller}</td>
       </tr>
     `;
     })
@@ -453,7 +453,6 @@ function toDetailExcelHtml(rows) {
     "路線",
     "班次",
     "姓名",
-    "售票員",
     "訂位代碼",
     "手機",
     "國籍",
@@ -463,7 +462,8 @@ function toDetailExcelHtml(rows) {
     "身心障礙人士",
     "備註",
     "訂票狀態",
-    "驗票狀態"
+    "驗票狀態",
+    "售票員"
   ];
 
   const detailRows = [];
@@ -474,7 +474,6 @@ function toDetailExcelHtml(rows) {
         r.route,
         r.shift,
         p.name,
-        p.seller,
         p.bookingCode,
         p.phone,
         p.nationality,
@@ -484,12 +483,13 @@ function toDetailExcelHtml(rows) {
         p.disability,
         p.note,
         p.bookedStatus,
-        p.checkedStatus
+        p.checkedStatus,
+        p.seller
       ]);
     });
   });
 
-  const textColumns = new Set([5, 6, 8]); // 訂位代碼、手機、身分證
+  const textColumns = new Set([4, 5, 7]); // 訂位代碼、手機、身分證
   const trs = detailRows
     .map((cols) => `<tr>${cols.map((c, idx) => toExcelCell(c, textColumns.has(idx))).join("")}</tr>`)
     .join("");
