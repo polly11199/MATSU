@@ -642,7 +642,63 @@ td:nth-child(3) {
   #detailModal table {
     width: 100%;
     min-width: 0;
+    table-layout: auto;
   }
+
+  #detailModal thead {
+    display: none;
+  }
+
+  #detailModal tbody {
+    display: block;
+  }
+
+  #detailModal tbody tr {
+    display: block;
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+  }
+
+  #detailModal tbody td {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 8px;
+    width: 100% !important;
+    padding: 6px 0;
+    border-bottom: 1px dashed #e5edf5;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  #detailModal tbody td:last-child {
+    border-bottom: 0;
+  }
+
+  #detailModal tbody td::before {
+    color: #4e627a;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  #detailModal tbody td:nth-child(1)::before { content: "搭乘日期"; }
+  #detailModal tbody td:nth-child(2)::before { content: "班次"; }
+  #detailModal tbody td:nth-child(3)::before { content: "姓名"; }
+  #detailModal tbody td:nth-child(4)::before { content: "訂位代碼"; }
+  #detailModal tbody td:nth-child(5)::before { content: "手機"; }
+  #detailModal tbody td:nth-child(6)::before { content: "國籍"; }
+  #detailModal tbody td:nth-child(7)::before { content: "身分證"; }
+  #detailModal tbody td:nth-child(8)::before { content: "是否接駁"; }
+  #detailModal tbody td:nth-child(9)::before { content: "是否需要英文"; }
+  #detailModal tbody td:nth-child(10)::before { content: "身心障礙人士"; }
+  #detailModal tbody td:nth-child(11)::before { content: "備註"; }
+  #detailModal tbody td:nth-child(12)::before { content: "訂票狀態"; }
+  #detailModal tbody td:nth-child(13)::before { content: "驗票狀態"; }
+  #detailModal tbody td:nth-child(14)::before { content: "售票員"; }
 }
 
 @media (max-width: 700px) {
