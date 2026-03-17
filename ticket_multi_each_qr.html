@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多張票券範例（每張一個QR）</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 28px;
+      line-height: 1.7;
+      font-size: 16px;
+      color: #111;
+    }
+    h1 {
+      text-align: center;
+      margin: 0 0 12px 0;
+      font-size: 14pt;
+      font-weight: 700;
+      width: 100%;
+    }
+    p { margin: 6px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    td.qr {
+      text-align: center;
+      width: 52mm;
+    }
+    td.qr img {
+      width: 35mm;
+      height: 35mm;
+      display: inline-block;
+      background: #fff;
+      padding: 2mm;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>連江縣公共汽車管理處乘車票券</h1>
+
+  <p>訂位代號: RES-ORDER-20260317-002</p>
+  <p>路線: 北海坑道線</p>
+  <p>搭乘日期: 03/12 8:00</p>
+  <p>購買張數: 3 張</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>序號</th>
+        <th>姓名</th>
+        <th>票種</th>
+        <th>票價</th>
+        <th>QR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>王小明</td>
+        <td>全票</td>
+        <td>300元</td>
+        <td class="qr"><img src="ticket_item_1_qr.png" alt="QR 1" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>陳小華</td>
+        <td>全票</td>
+        <td>300元</td>
+        <td class="qr"><img src="ticket_item_2_qr.png" alt="QR 2" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>林小美</td>
+        <td>全票</td>
+        <td>300元</td>
+        <td class="qr"><img src="ticket_item_3_qr.png" alt="QR 3" /></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+
